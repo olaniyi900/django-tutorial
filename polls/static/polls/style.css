@@ -1,0 +1,15 @@
+li a {
+    color: green;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin-top: 2rem;
+}
+
+body {
+    background: white url("images/background.jpg") no-repeat;
+}
