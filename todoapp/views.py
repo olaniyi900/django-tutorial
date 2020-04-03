@@ -15,4 +15,8 @@ class TodoCreateView(CreateView):
     template_name = 'todoapp/todo_list.html'
     fields = ['text']
 
+    def get_queryset(self):
+        return Todo.objects.all()
+    
+
 
