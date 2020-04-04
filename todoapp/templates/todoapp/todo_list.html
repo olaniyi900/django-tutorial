@@ -1,5 +1,5 @@
 {% extends 'todoapp/base.html' %}
-{% load crispy_forms_tags %}
+{% comment %} {% load crispy_forms_tags %} {% endcomment %}
 {% block title_block %}
 todoapp
 {% endblock  %}
@@ -10,8 +10,8 @@ todoapp
     {% csrf_token %}
   <div class="row">
     <div class="col">
-      {{ form|crispy }}
-      {% comment %} <input type="text" class="form-control" placeholder="Add Todo"> {% endcomment %}
+      {% comment %} {{ form|crispy }} {% endcomment %}
+      <input type="text" class="form-control" name="todo" placeholder="Add Todo">
     </div>
     <div class="col">
       <input type="submit" class="btn btn-primary" value="AddTodo">
@@ -22,7 +22,9 @@ todoapp
 {% for todo in todo_list %}
   <li class="list-group-item">
   {{ todo.text }}
+ 
   <button type="button" class="btn btn-danger btn-sm float-right">Delete</button>
+
   </li>
   {% endfor %}
 </ul>
