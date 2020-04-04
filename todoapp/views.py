@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 # from django.views.generic.edit import CreateView, DeleteView, UpdateView
-
+from .forms import TodoForm
 from .models import Todo
 
 
@@ -13,15 +13,27 @@ class TodoListView(ListView):
 
 def todoCreate(request):
     qs = Todo.objects.all()
-    todo_item = request.POST['todo']
-    Todo.objects.create(text=todo_item)
-    return render(request, 'todoapp/todo_list.html', {'todo_list':qs})
+    if request.method == 'POST':
+        form = TodoForm(request.POST)
+        if form.is_valid():
+            todo_text = form.cleaned_data['text']
+            todo = Todo()
+            todo.text = todo_text
+            todo.save()
+            #return redirect('todo')
+    else:
+        form = TodoForm()
+    return render(request, 'todoapp/todo_list.html', {'todo_list':qs, 'form':form})
+    
+    
+    
+    
 
 
-# def todoDelete(request, todo_id):
-#     todo_item = Todo.objects.get(id=todo_id)
-#     todo_item.delete()
-#     return redirct('todo_create')
+def todoDelete(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    todo.delete()
+    return render(request, 'todoapp/todo_list.html', {'todo':todo})
 
 
 

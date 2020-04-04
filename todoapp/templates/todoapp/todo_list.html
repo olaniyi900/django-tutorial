@@ -6,12 +6,12 @@ todoapp
 
 {% block content %}
 <h1>todoapp</h1>
-<form class="mb-4" method="POST" action=".">
+<form class="mb-4" method="POST" action="{% url 'todo_create' %}">
     {% csrf_token %}
   <div class="row">
     <div class="col">
       {% comment %} {{ form|crispy }} {% endcomment %}
-      <input type="text" class="form-control" name="todo" placeholder="Add Todo">
+      <input type="text" class="form-control" name="text" placeholder="Add Todo">
     </div>
     <div class="col">
       <input type="submit" class="btn btn-primary" value="AddTodo">
@@ -22,9 +22,10 @@ todoapp
 {% for todo in todo_list %}
   <li class="list-group-item">
   {{ todo.text }}
- 
-  <button type="button" class="btn btn-danger btn-sm float-right">Delete</button>
-
+  <form method="POST" action="{% url 'todo_delete' todo.todo_id %}">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger btn-sm float-right">Delete</button>
+  </form>
   </li>
   {% endfor %}
 </ul>
