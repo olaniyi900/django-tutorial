@@ -22,10 +22,10 @@ todoapp
 {% for todo in todo_list %}
   <li class="list-group-item">
   {{ todo.text }}
-  <form method="POST" action="{% url 'todo_delete' todo.todo_id %}">
-  {% csrf_token %}
-  <button type="submit" class="btn btn-danger btn-sm float-right">Delete</button>
-  </form>
+  
+  <a href="{% url 'todo_delete' todo.id %}" class="btn btn-danger btn-sm float-right">Delete</a>
+  <a href="{% url 'todo_update' todo.id %}" class="btn btn-primary btn-sm float-right">Update</a>
+
   </li>
   {% endfor %}
 </ul>
