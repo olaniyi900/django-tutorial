@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'crispy_forms',
+    'bookstore.apps.BookstoreConfig',
     'todoapp.apps.TodoappConfig',
     'exam.apps.ExamConfig',
     'polls.apps.PollsConfig',

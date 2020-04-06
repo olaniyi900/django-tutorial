@@ -24,7 +24,7 @@ todoapp
   {{ todo.text }}
   
   <a href="{% url 'todo_delete' todo.id %}" class="btn btn-danger btn-sm float-right">Delete</a>
-  <a href="{% url 'todo_update' todo.id %}" class="btn btn-primary btn-sm float-right">Update</a>
+  <a href="{% url 'todo_update' todo.id %}" class="mr-3 btn btn-primary btn-sm float-right">Update</a>
 
   </li>
   {% endfor %}
