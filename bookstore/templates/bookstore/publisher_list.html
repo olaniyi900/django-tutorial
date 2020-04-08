@@ -1,0 +1,14 @@
+{% extends 'bookstore/base.html' %}
+
+{% block titlt_block %}
+bookstore
+{% endblock  %}
+{% block content %}
+ <h2>Publisher list</h2>
+    <ul class="list-group">
+        {% for publisher in publisher_list %}
+            <li class="list-group-item">{{ publisher.name }}</li>
+        {% endfor %}
+    </ul>
+ 
+{% endblock  %}
