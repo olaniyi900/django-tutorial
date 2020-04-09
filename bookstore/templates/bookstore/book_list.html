@@ -1,0 +1,14 @@
+{% extends 'bookstore/base.html' %}
+
+{% block titlt_block %}
+bookstore
+{% endblock  %}
+{% block content %}
+    
+    <ul>
+    <h1>Books in Store</h1>
+        {% for book in book_list %}
+            <li class="list-group-item">{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+{% endblock  %}
