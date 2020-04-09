@@ -1,0 +1,14 @@
+{% extends 'bookstore/base.html' %}
+{% load crispy_forms_tags %}
+{% block titl_block %}
+piblisher form
+{% endblock  %}
+
+{% block content %}
+<h1>Add Publisher</h1>
+<form method="POST" action=".">
+{% csrf_token %}
+{{ form|crispy }}
+<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock  %}

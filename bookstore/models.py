@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Publisher(models.Model):
     name = models.CharField(max_length=30)
     address = models.CharField(max_length=50)
@@ -10,6 +11,7 @@ class Publisher(models.Model):
 
     class Meta:
         ordering = ["-name"]
+    
 
     def __str__(self):
         return self.name
