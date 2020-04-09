@@ -1,0 +1,27 @@
+{% extends 'bookstore/base.html' %}
+
+{% block titlt_block %}
+bookstore
+{% endblock  %}
+{% block content %}
+ <h2>Publisher Detail</h2>
+ <div class="jumbotron">
+  <h1 class="display-3">{{ publisher.name }}</h1>
+  <h4 class="display-5">Adress:</h4>
+  <p class="lead ml-5 mb-0">{{ publisher.address }}</p>
+  <p class="lead ml-5 mb-0">{{ publisher.city }}</p>
+  <p class="lead ml-5 mb-0">{{ publisher.state_province }}</p>
+  <p class="lead ml-5 mb-0">{{ publisher.country }}</p>
+  <hr class="my-4">
+  <h3>List of Book Published</h3>
+  <ol>
+    {% for book in books %} 
+        <li>{{ book.title }}</li>
+        {% empty %}
+        <p>There is no book available</P>
+    {% endfor %}
+   
+  </ol>
+  
+</div>
+{% endblock  %}

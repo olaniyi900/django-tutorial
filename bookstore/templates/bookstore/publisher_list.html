@@ -6,8 +6,10 @@ bookstore
 {% block content %}
  <h2>Publisher list</h2>
     <ul class="list-group">
-        {% for publisher in publisher_list %}
+        {% for publisher in publishers %}
             <li class="list-group-item">{{ publisher.name }}</li>
+            {% empty %}
+            <li class="list-group-item">There is no publisher</li>
         {% endfor %}
     </ul>
  
