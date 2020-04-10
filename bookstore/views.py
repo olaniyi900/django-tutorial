@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from bookstore.models import Publisher, Book, Author
@@ -26,3 +27,13 @@ class PublisherCreateView(CreateView):
     model = Publisher
     fields = ['name', 'address', 'city', 'state_province', 'country', 'website']
     success_url = '/bookstore/publisher/'
+
+
+class PublisherUpdateView(UpdateView):
+    model = Publisher
+    fields = ['name', 'address', 'city', 'state_province', 'country', 'website']
+    success_url = '/bookstore/publisher/'
+
+class PublisherDeleteView(DeleteView):
+    model = Publisher
+    success_url = reverse_lazy('publisher')
