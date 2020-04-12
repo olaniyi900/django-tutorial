@@ -12,7 +12,11 @@ bookstore
   <p class="lead ml-5 mb-0">{{ publisher.city }}</p>
   <p class="lead ml-5 mb-0">{{ publisher.state_province }}</p>
   <p class="lead ml-5 mb-0">{{ publisher.country }}</p>
+  <div class="float-right">
+  <a href="{% url 'bookstore:publisher_delete' publisher.id %}" class="btn btn-danger">Delete</a>
+  </div>
   <hr class="my-4">
+  
   <h3>List of Book Published</h3>
   <ol>
     {% for book in books %} 

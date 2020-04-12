@@ -36,4 +36,4 @@ class PublisherUpdateView(UpdateView):
 
 class PublisherDeleteView(DeleteView):
     model = Publisher
-    success_url = reverse_lazy('publisher')
+    success_url = reverse_lazy('bookstore:publisher')

@@ -4,5 +4,11 @@
 delete pub
 {% endblock  %}
 {% block content %}
-<h1>Do you which to delete publisher</h1>
+<h1>Do you which to delete {{ publisher.name }} publisher</h1>
+<form method="POST" action=".">
+{% csrf_token %}
+
+<button type="submit" class="btn btn-danger">Delete</button>
+<a href="{% url 'bookstore:publisher_detail' publisher.id %}" class="btn btn-primary">Cancel</a>
+</form>
 {% endblock  %}
